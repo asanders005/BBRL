@@ -62,6 +62,8 @@ public class CombatManager : SceneManagerBase
     private GameObject[] brickTypes;
     private Vector3[] brickLocations;
 
+    private List<GameObject> specialEffects = new List<GameObject>();
+
     private GameObject[] enemies;
     private int spawnedEnemyCount = 0;
     private int enemyCount = 0;
@@ -191,11 +193,11 @@ public class CombatManager : SceneManagerBase
             {
                 var effectInstance = Instantiate(encounter.SpecialEffects[i], Vector3.zero, Quaternion.identity);
                 effectInstance.transform.position = encounter.specialEffectLocations[i];
+                specialEffects.Add(effectInstance);
             }
         }
 
         isActive = true;
-        Debug.Log($"Encounter started with {enemyCount} enemies");
     }
 
     private void spawnBricks()
@@ -229,6 +231,15 @@ public class CombatManager : SceneManagerBase
         {
             Destroy(brick.gameObject);
         }
+
+        foreach (var effect in specialEffects)
+        {
+            if (effect != null)
+            {
+                Destroy(effect);
+            }
+        }
+        specialEffects.Clear();
 
         ReturnToMap();
     }
@@ -264,7 +275,6 @@ public class CombatManager : SceneManagerBase
 
     private void EnemyTurn()
     {
-        Debug.Log($"Enemy turn started. {enemyCount} enemies remaining.");
         foreach (var enemy in enemies)
         {
             if (enemy != null && enemy.activeInHierarchy)
@@ -357,7 +367,6 @@ public class CombatManager : SceneManagerBase
         if (!isActive) return;
 
         enemyCount--;
-        Debug.Log($"Enemy destroyed: {enemy.name}; {enemyCount} enemies remaining");
         var enemyIndex = System.Array.IndexOf(enemies, enemy);
 
         if (enemyIndex >= 0 && enemyIndex < enemies.Length)

@@ -41,7 +41,6 @@ public abstract class EnemyBase : MonoBehaviour
 
     private void OnDestroy()
     {
-        Debug.Log($"Enemy {gameObject.name} destroyed.");
         onEnemyTurn.Unsubscribe(OnEnemyTurn);
         onEnemyDestroyed.RaiseEvent(gameObject);
     }

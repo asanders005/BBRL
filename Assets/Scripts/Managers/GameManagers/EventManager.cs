@@ -35,7 +35,7 @@ public class EventManager : SceneManagerBase
                 options[i].GetComponent<RectTransform>().sizeDelta = new Vector2(screenSize.x * 0.3f, screenSize.y - 20);
 
                 var imageRect = optionImages[i].GetComponent<RectTransform>();
-                imageRect.sizeDelta = new Vector2(screenSize.x * 0.25f, screenSize.x * 0.25f);
+                imageRect.sizeDelta = new Vector2(screenSize.y * 0.25f, screenSize.y * 0.25f);
                 imageRect.anchoredPosition = new Vector2(0, (screenSize.y * -0.125f) - 20);
 
                 var titleRect = optionTitles[i].GetComponent<RectTransform>();

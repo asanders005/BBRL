@@ -171,6 +171,7 @@ MonoBehaviour:
   combatEncounters:
   - {fileID: 11400000, guid: dca187142b15a49448fe1652d2e20023, type: 2}
   - {fileID: 11400000, guid: 1d7727ec04309be4bae9707ba5185b2b, type: 2}
+  - {fileID: 11400000, guid: bae5280ea59fed74cac689592fe3aa88, type: 2}
   eventEncounters:
   - {fileID: 11400000, guid: 96d65f2d036bca64fbf09a1539b00cbd, type: 2}
 --- !u!4 &1393339403

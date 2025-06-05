@@ -870,8 +870,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9bc92b45115766488231067c6562223, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nextSpaceLeft: {fileID: 0}
-  nextSpaceRight: {fileID: 1589276981}
+  nextSpaceLeft: {fileID: 1589276981}
+  nextSpaceRight: {fileID: 0}
   encounterType: 0
 --- !u!4 &451502606
 Transform:

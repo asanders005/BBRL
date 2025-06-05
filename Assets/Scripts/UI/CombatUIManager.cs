@@ -32,6 +32,7 @@ public class CombatUIManager : MonoBehaviour
     [SerializeField] private TMP_Text characterMaxHealth;
 
     [Header("Events")]
+    [SerializeField] private EncounterNameEvent onEncounterStart;
     [SerializeField] private Event onBreakerQueueUpdate;
     [SerializeField] private Event onBreakerDiscardUpdate;
     [SerializeField] private GameObjectEvent onCharacterHealthUpdate;
@@ -43,6 +44,8 @@ public class CombatUIManager : MonoBehaviour
 
     private void OnEnable()
     {
+        onEncounterStart.Subscribe(OnEncounterStart);
+
         onBreakerQueueUpdate.Subscribe(UpdateBreakerQueue);
         onBreakerDiscardUpdate.Subscribe(UpdateBreakerDiscard);
         onCharacterHealthUpdate.Subscribe(onUpdateCharacterHealth);
@@ -50,6 +53,8 @@ public class CombatUIManager : MonoBehaviour
 
     private void OnDisable()
     {
+        onEncounterStart.Unsubscribe(OnEncounterStart);
+
         onBreakerQueueUpdate.Unsubscribe(UpdateBreakerQueue);
         onBreakerDiscardUpdate.Unsubscribe(UpdateBreakerDiscard);
         onCharacterHealthUpdate.Unsubscribe(onUpdateCharacterHealth);
@@ -77,6 +82,17 @@ public class CombatUIManager : MonoBehaviour
             characterIcon.GetComponent<RectTransform>().sizeDelta = new Vector2(mainCharacterPanel.sizeDelta.x * 0.3f, mainCharacterPanel.sizeDelta.x * 0.3f);
             characterHealthSlider.GetComponent<RectTransform>().sizeDelta = new Vector2(mainCharacterPanel.sizeDelta.x * 0.65f, mainCharacterPanel.sizeDelta.y * 0.15f);
         }
+    }
+
+    private void OnEncounterStart(EncounterType type, string name)
+    {
+        if (type != EncounterType.Combat)
+        {
+            return;
+        }
+
+        breakerQueue.Clear();
+        breakerQueueIcons.Clear();
     }
 
     private void UpdateBreakerDiscard()
