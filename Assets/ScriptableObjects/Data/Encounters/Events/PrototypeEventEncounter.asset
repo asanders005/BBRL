@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39a15d689f8eebd41a79365ac0c9ebeb, type: 3}
+  m_Name: PrototypeEventEncounter
+  m_EditorClassIdentifier: 
+  description: Testing Breaker Gain
+  encounterName: EventPrototype
+  encounterType: 4
+  rewardSelection:
+  - {fileID: 473828199235786798, guid: de14c3e7c4393aa49b77cbfa5171eeba, type: 3}
+  - {fileID: 473828199235786798, guid: 1ab163bdcbfa684479362f307ff9b3d9, type: 3}
+  - {fileID: 473828199235786798, guid: ce3c3329a4c3b7b4885f2da1dfded0dd, type: 3}
